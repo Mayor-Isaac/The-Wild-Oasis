@@ -1,5 +1,13 @@
 import React from "react";
+import TableOperations from "../../ui/TableOperations";
+import Filter from "../../ui/Filter";
 
-export default function cabinTableOperations() {
-  return <div>cabinTableOperations</div>;
+export default function CabinTableOperations() {
+  return (
+    <div>
+      <TableOperations>
+        <Filter />
+      </TableOperations>
+    </div>
+  );
 }
