@@ -56,6 +56,7 @@ function Filter({ filterField, options }) {
           {option.label}
         </FilterButton>
       ))}
+      {/*Wet Code*/}
       {/* <FilterButton onClick={() => handleClick("all")}>All</FilterButton>
       <FilterButton onClick={() => handleClick("no-discount")}>
         No Discount

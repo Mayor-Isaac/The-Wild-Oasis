@@ -42,6 +42,7 @@ async function createCabins() {
 
 async function createBookings() {
   // Bookings need a guestId and a cabinId. We can't tell Supabase IDs for each object, it will calculate them on its own. So it might be different for different people, especially after multiple uploads. Therefore, we need to first get all guestIds and cabinIds, and then replace the original IDs in the booking data with the actual ones from the DB
+
   const { data: guestsIds } = await supabase
     .from("guests")
     .select("id")
@@ -94,9 +95,18 @@ async function createBookings() {
     };
   });
 
-  console.log(finalBookings);
+  // console.log("Final===>",finalBookings, typeof finalBookings);
 
-  const { error } = await supabase.from("bookings").insert(finalBookings);
+    
+const { error } = await supabase
+  .from('bookings')
+  .insert(finalBookings)
+
+  // [
+  //   { some_column: 'someValue' },
+  //   { some_column: 'otherValue' },
+  // ]
+  // const { error } = await supabase.from("bookings").insert(finalBookings);
   if (error) console.log(error.message);
 }
 
@@ -121,6 +131,7 @@ function Uploader() {
   async function uploadBookings() {
     setIsLoading(true);
     await deleteBookings();
+    alert("Deleted")
     await createBookings();
     setIsLoading(false);
   }
