@@ -24,7 +24,7 @@ function CabinTable() {
   if (filterValue === "with-discount")
     filteredCabins = cabins.filter((cabin) => cabin.discount > 0);
 
-  console.log(filteredCabins);
+  // console.log(filteredCabins);
 
   // SORT
   const sortBy = searchParams.get("sortBy") || "startDate-asc";
